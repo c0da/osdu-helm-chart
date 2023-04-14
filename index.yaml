@@ -1,0 +1,147 @@
+apiVersion: v1
+entries:
+  osdu-gc-onprem:
+  - apiVersion: v2
+    appVersion: 0.0.7-latest
+    created: "2023-04-14T13:12:27.671430827+02:00"
+    dependencies:
+    - condition: airflow.enabled
+      name: airflow
+      repository: oci://community.opengroup.org:5555/osdu/platform/deployment-and-operations/base-containers-gcp/airflow-helm-chart/gc-helm
+      version: 0.1.0
+    - condition: elasticsearch.enabled
+      name: elasticsearch
+      repository: oci://community.opengroup.org:5555/osdu/platform/deployment-and-operations/base-containers-gcp/elastic-helm-chart/gc-helm
+      version: 19.5.4
+    - condition: keycloak.enabled
+      name: keycloak
+      repository: oci://community.opengroup.org:5555/osdu/platform/deployment-and-operations/base-containers-gcp/keycloak-helm-chart/gc-helm
+      version: 14.0.0
+    - condition: minio.enabled
+      name: minio
+      repository: oci://community.opengroup.org:5555/osdu/platform/deployment-and-operations/base-containers-gcp/minio-helm-chart/gc-helm
+      version: 12.0.0
+    - condition: postgresql.enabled
+      name: postgresql
+      repository: oci://community.opengroup.org:5555/osdu/platform/deployment-and-operations/base-containers-gcp/postgresql-helm-chart/gc-helm
+      version: 11.9.13
+    - condition: rabbitmq.enabled
+      name: rabbitmq
+      repository: oci://community.opengroup.org:5555/osdu/platform/deployment-and-operations/base-containers-gcp/rabbitmq-helm-chart/gc-helm
+      version: 11.9.0
+    - alias: rabbitmq_bootstrap
+      condition: rabbitmq_bootstrap.enabled
+      name: gc-bootstrap-rabbitmq-on-prem
+      repository: oci://community.opengroup.org:5555/osdu/platform/deployment-and-operations/base-containers-gcp/rabbitmq-bootstrap/gc-helm
+      version: 0.20.0-latest
+    - condition: gc-crs-catalog-deploy.enabled
+      name: gc-crs-catalog-deploy
+      repository: oci://community.opengroup.org:5555/osdu/platform/system/reference/crs-catalog-service/gc-helm
+      version: 0.0.7-latest
+    - condition: gc-crs-conversion-deploy.enabled
+      name: gc-crs-conversion-deploy
+      repository: oci://community.opengroup.org:5555/osdu/platform/system/reference/crs-conversion-service/gc-helm
+      version: 0.0.7-latest
+    - alias: gc_dataset_deploy
+      condition: gc_dataset_deploy.enabled
+      name: gc-dataset-deploy
+      repository: oci://community.opengroup.org:5555/osdu/platform/system/dataset/gc-helm
+      version: 0.0.7-latest
+    - alias: gc_entitlements_deploy
+      condition: gc_entitlements_deploy.enabled
+      name: gc-entitlements-deploy
+      repository: oci://community.opengroup.org:5555/osdu/platform/security-and-compliance/entitlements/gc-helm
+      version: 0.0.7-latest
+    - alias: gc_file_deploy
+      condition: gc_file_deploy.enabled
+      name: gc-file-deploy
+      repository: oci://community.opengroup.org:5555/osdu/platform/system/file/gc-helm
+      version: 0.0.7-latest
+    - alias: gc_indexer_deploy
+      condition: gc_indexer_deploy.enabled
+      name: gc-indexer-deploy
+      repository: oci://community.opengroup.org:5555/osdu/platform/system/indexer-service/gc-helm
+      version: 0.0.7-latest
+    - alias: gc_legal_deploy
+      condition: gc_legal_deploy.enabled
+      name: gc-legal-deploy
+      repository: oci://community.opengroup.org:5555/osdu/platform/security-and-compliance/legal/gc-helm
+      version: 0.0.7-latest
+    - alias: gc_notification_deploy
+      condition: gc_notification_deploy.enabled
+      name: gc-notification-deploy
+      repository: oci://community.opengroup.org:5555/osdu/platform/system/notification/gc-helm
+      version: 0.0.7-latest
+    - alias: gc_partition_deploy
+      condition: gc_partition_deploy.enabled
+      name: gc-partition-deploy
+      repository: oci://community.opengroup.org:5555/osdu/platform/system/partition/gc-helm
+      version: 0.0.7-latest
+    - alias: gc_policy_deploy
+      condition: gc_policy_deploy.enabled
+      name: gc-policy-deploy
+      repository: oci://community.opengroup.org:5555/osdu/platform/security-and-compliance/policy/gc-helm
+      version: 0.0.7-latest
+    - alias: gc_register_deploy
+      condition: gc_register_deploy.enabled
+      name: gc-register-deploy
+      repository: oci://community.opengroup.org:5555/osdu/platform/system/register/gc-helm
+      version: 0.0.7-latest
+    - alias: gc_schema_deploy
+      condition: gc_schema_deploy.enabled
+      name: gc-schema-deploy
+      repository: oci://community.opengroup.org:5555/osdu/platform/system/schema-service/gc-helm
+      version: 0.0.7-latest
+    - alias: gc_search_deploy
+      condition: gc_search_deploy.enabled
+      name: gc-search-deploy
+      repository: oci://community.opengroup.org:5555/osdu/platform/system/search-service/gc-helm
+      version: 0.0.7-latest
+    - alias: gc_storage_deploy
+      condition: gc_storage_deploy.enabled
+      name: gc-storage-deploy
+      repository: oci://community.opengroup.org:5555/osdu/platform/system/storage/gc-helm
+      version: 0.0.7-latest
+    - alias: gc_unit_deploy
+      condition: gc_unit_deploy.enabled
+      name: gc-unit-deploy
+      repository: oci://community.opengroup.org:5555/osdu/platform/system/reference/unit-service/gc-helm
+      version: 0.0.7-latest
+    - alias: gc_wellbore_deploy
+      condition: gc_wellbore_deploy.enabled
+      name: gc-wellbore-deploy
+      repository: oci://community.opengroup.org:5555/osdu/platform/domain-data-mgmt-services/wellbore/wellbore-domain-services/gc-helm
+      version: 0.0.7-latest
+    - alias: gc_well_delivery_deploy
+      condition: gc_well_delivery_deploy.enabled
+      name: gc-well-delivery-deploy
+      repository: oci://community.opengroup.org:5555/osdu/platform/domain-data-mgmt-services/well-delivery/well-delivery/gc-helm
+      version: 0.0.7-latest
+    - alias: gc_workflow_deploy
+      condition: gc_workflow_deploy.enabled
+      name: gc-workflow-deploy
+      repository: oci://community.opengroup.org:5555/osdu/platform/data-flow/ingestion/ingestion-workflow/gc-helm
+      version: 0.0.7-latest
+    - alias: gc_seismic_store_sdms_deploy
+      condition: gc_seismic_store_sdms_deploy.enabled
+      name: gc-seismic-store-deploy
+      repository: oci://community.opengroup.org:5555/osdu/platform/domain-data-mgmt-services/seismic/seismic-dms-suite/seismic-store-service/gc-helm
+      version: 0.0.7-latest
+    - alias: gc_secret_deploy
+      condition: gc_secret_deploy.enabled
+      name: gc-secret-deploy
+      repository: oci://community.opengroup.org:5555/osdu/platform/security-and-compliance/secret/gc-helm
+      version: 0.0.7-latest
+    - alias: gc_eds_dms_deploy
+      condition: gc_eds_dms_deploy.enabled
+      name: gc-eds-dms-deploy
+      repository: oci://community.opengroup.org:5555/osdu/platform/data-flow/ingestion/external-data-sources/eds-dms/gc-helm
+      version: 0.0.7-latest
+    description: A Helm chart for Kubernetes
+    digest: cfbd46496e6c44745f56235a464a4c1237b265064a9a61f3312d3643e836c92d
+    name: osdu-gc-onprem
+    type: application
+    urls:
+    - https://c0da.github.io/osdu-helm-chart/osdu-gc-onprem-0.0.7-latest.tgz
+    version: 0.0.7-latest
+generated: "2023-04-14T13:12:27.618288314+02:00"
